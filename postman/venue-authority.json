@@ -1,0 +1,300 @@
+{
+  "info": {
+    "name": "Venue Authority API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "version": "2026-08-13",
+    "description": "Verify food-service facilities against supported US regulator records. Keep source-linked evidence receipts and monitor supported changes.\n\nStart with Coverage. It returns a 200 response without an API key. To test the authenticated requests, create a verified workspace at https://venueauthority.com/sign-up, issue a complimentary 25-unit test key at https://venueauthority.com/dashboard/keys, and paste its one-time value into the apiKey collection variable.\n\nA valid resolution, canonical facility request, or new audit export consumes one prepaid unit. Policy rejections also consume one unit. Malformed input, authentication failures, unavailable serving state, source-rights failures, and exact replays do not consume another unit.\n\nDocumentation: https://venueauthority.com/developers\nCoverage: https://venueauthority.com/coverage\nPricing: https://venueauthority.com/pricing\nSupport: https://venueauthority.com/support"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://venueauthority.com"
+    },
+    {
+      "key": "apiKey",
+      "value": "YOUR_ONE_TIME_KEY"
+    },
+    {
+      "key": "facilityId",
+      "value": "nyc:50069801"
+    },
+    {
+      "key": "portfolioId",
+      "value": "PORTFOLIO_UUID"
+    },
+    {
+      "key": "itemId",
+      "value": "ITEM_UUID"
+    },
+    {
+      "key": "webhookId",
+      "value": "WEBHOOK_UUID"
+    },
+    {
+      "key": "auditExportId",
+      "value": "AUDIT_EXPORT_UUID"
+    },
+    {
+      "key": "resolverRequestId",
+      "value": "postman-resolve-000001"
+    }
+  ],
+  "item": [
+    {
+      "name": "Coverage",
+      "request": {
+        "method": "GET",
+        "description": "Start here. Read the current source, jurisdiction, and freshness boundary without an API key or unit charge.",
+        "url": "{{baseUrl}}/api/v1/coverage"
+      }
+    },
+    {
+      "name": "Resolve facility",
+      "request": {
+        "method": "POST",
+        "description": "Match a merchant name and street address to one supported regulator record. Replace the example when you are ready to test your own merchant.",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{apiKey}}"
+          },
+          {
+            "key": "X-Request-Id",
+            "value": "{{resolverRequestId}}"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"YOAN MING GARDEN\",\n  \"address\": \"1407 MADISON AVENUE, NEW YORK, NY 10029\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": "{{baseUrl}}/api/v1/resolve"
+      }
+    },
+    {
+      "name": "Get canonical facility",
+      "request": {
+        "method": "GET",
+        "description": "Retrieve the current canonical facility record and its available source evidence. Set facilityId from an accepted resolver response.",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{apiKey}}"
+          },
+          {
+            "key": "X-Request-Id",
+            "value": "postman-facility-000001"
+          }
+        ],
+        "url": "{{baseUrl}}/api/v1/facilities/{{facilityId}}"
+      }
+    },
+    {
+      "name": "List portfolios",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{apiKey}}"
+          }
+        ],
+        "url": "{{baseUrl}}/api/v1/portfolios"
+      }
+    },
+    {
+      "name": "Create portfolio",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{apiKey}}"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"Merchant watchlist\"\n}"
+        },
+        "url": "{{baseUrl}}/api/v1/portfolios"
+      }
+    },
+    {
+      "name": "List portfolio items",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{apiKey}}"
+          }
+        ],
+        "url": "{{baseUrl}}/api/v1/portfolios/{{portfolioId}}/items"
+      }
+    },
+    {
+      "name": "Add portfolio item",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{apiKey}}"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"jurisdiction\": \"nyc\",\n  \"sourceId\": \"SOURCE_ID_FROM_RESOLVER\"\n}"
+        },
+        "url": "{{baseUrl}}/api/v1/portfolios/{{portfolioId}}/items"
+      }
+    },
+    {
+      "name": "Delete portfolio item",
+      "request": {
+        "method": "DELETE",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{apiKey}}"
+          }
+        ],
+        "url": "{{baseUrl}}/api/v1/portfolios/{{portfolioId}}/items/{{itemId}}"
+      }
+    },
+    {
+      "name": "List portfolio events",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{apiKey}}"
+          }
+        ],
+        "url": "{{baseUrl}}/api/v1/portfolios/{{portfolioId}}/events"
+      }
+    },
+    {
+      "name": "List webhooks",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{apiKey}}"
+          }
+        ],
+        "url": "{{baseUrl}}/api/v1/webhooks"
+      }
+    },
+    {
+      "name": "Create webhook",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{apiKey}}"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"url\": \"https://example.com/venue-authority\"\n}"
+        },
+        "url": "{{baseUrl}}/api/v1/webhooks"
+      }
+    },
+    {
+      "name": "Delete webhook",
+      "request": {
+        "method": "DELETE",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{apiKey}}"
+          }
+        ],
+        "url": "{{baseUrl}}/api/v1/webhooks/{{webhookId}}"
+      }
+    },
+    {
+      "name": "List webhook deliveries",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{apiKey}}"
+          }
+        ],
+        "url": "{{baseUrl}}/api/v1/webhooks/deliveries?webhookId={{webhookId}}"
+      }
+    },
+    {
+      "name": "Create audit export",
+      "request": {
+        "method": "POST",
+        "description": "Create a hashed JSON bundle from one to 100 completed resolver request IDs owned by this workspace.",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{apiKey}}"
+          },
+          {
+            "key": "X-Request-Id",
+            "value": "postman-audit-export-000001"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"requestIds\": [\n    \"{{resolverRequestId}}\"\n  ],\n  \"format\": \"json\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": "{{baseUrl}}/api/v1/audit-exports"
+      }
+    },
+    {
+      "name": "Download audit export",
+      "request": {
+        "method": "GET",
+        "description": "Download an audit export already issued to this workspace.",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{apiKey}}"
+          }
+        ],
+        "url": "{{baseUrl}}/api/v1/audit-exports/{{auditExportId}}"
+      }
+    }
+  ]
+}
