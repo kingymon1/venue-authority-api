@@ -14,6 +14,10 @@ curl https://venueauthority.com/api/v1/coverage
 
 The response shows the jurisdictions, regulator sources, source classes, and freshness state currently available to the API. Check it before sending merchant records.
 
+## See a decision before signing up
+
+[Open the public Portfolio Proof example](https://venueauthority.com/portfolio-proof#example-report) to inspect a source-linked accepted decision, a rejected decision, and the evidence boundary. The fixed example does not require an account or upload a file.
+
 ## Test a decision
 
 1. [Create a verified workspace](https://venueauthority.com/sign-up?redirect_url=/dashboard/keys).
