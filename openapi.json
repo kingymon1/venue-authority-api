@@ -2,8 +2,8 @@
   "openapi": "3.1.0",
   "info": {
     "title": "Venue Authority API",
-    "version": "2026-08-13",
-    "description": "Resolve supported food-service facilities to regulator records. One valid authenticated resolver or canonical facility request consumes one prepaid unit, including a policy rejection. Exact replay is not charged twice.",
+    "version": "2026-08-21",
+    "description": "Match a food-service merchant name and street address to a supported US regulator record and retain source-linked evidence. Inspect a public accepted and rejected example at https://venueauthority.com/portfolio-proof#example-report before creating an account. One valid authenticated resolver or canonical facility request consumes one prepaid unit, including a policy rejection. Exact replay is not charged twice.",
     "termsOfService": "https://venueauthority.com/terms",
     "contact": {
       "name": "Venue Authority support",
