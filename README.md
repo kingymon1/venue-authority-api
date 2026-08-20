@@ -2,7 +2,7 @@
 
 Venue Authority checks a food-service merchant's name and street address against supported US regulator records. Each decision includes the matched source and evidence boundary, so merchant onboarding teams can keep an audit receipt instead of relying on an opaque yes or no.
 
-It is built for payment facilitators, marketplaces, KYB providers, and restaurant platforms that need to verify locations during onboarding and monitor supported source changes afterward.
+It is built for payment facilitators, marketplaces, KYB providers, and restaurant platforms that need to verify locations during onboarding. Watchlist and webhook operations are documented for supported workspaces. Paid monitoring expansion is not available yet. Check current availability on the status and pricing pages.
 
 ## Check coverage first
 
