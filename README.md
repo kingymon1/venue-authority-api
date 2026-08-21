@@ -50,7 +50,7 @@ The repository includes three reviewed, versioned integrations:
 - [Python SDK](packages/python-sdk) for Python 3.9 and later. It uses only the standard library at runtime.
 - [MCP server](packages/mcp-server) for MCP hosts that need public coverage, facility resolution, or canonical facility evidence.
 
-These packages are available from this repository now. npm and PyPI releases will be documented here only after the corresponding registry publication succeeds.
+The [v0.1.0 release](https://github.com/kingymon1/venue-authority-api/releases/tag/clients-v0.1.0) includes a one-click MCP bundle and downloadable archives for all three clients. npm and PyPI releases will be documented here only after the corresponding registry publication succeeds.
 
 ## Product boundaries
 

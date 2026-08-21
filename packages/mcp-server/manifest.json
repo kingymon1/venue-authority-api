@@ -1,0 +1,65 @@
+{
+  "manifest_version": "0.3",
+  "name": "venue-authority-mcp",
+  "display_name": "Venue Authority",
+  "version": "0.1.0",
+  "description": "Verify food-service facilities against supported regulator records.",
+  "author": {
+    "name": "Venue Authority",
+    "url": "https://venueauthority.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kingymon1/venue-authority-api.git"
+  },
+  "homepage": "https://venueauthority.com/developers",
+  "documentation": "https://venueauthority.com/developers",
+  "support": "https://github.com/kingymon1/venue-authority-api/issues",
+  "server": {
+    "type": "node",
+    "entry_point": "bin/venue-authority-mcp.mjs",
+    "mcp_config": {
+      "command": "node",
+      "args": ["${__dirname}/bin/venue-authority-mcp.mjs"],
+      "env": {
+        "VENUE_AUTHORITY_API_KEY": "${user_config.api_key}"
+      }
+    }
+  },
+  "tools": [
+    {
+      "name": "venue_authority_coverage",
+      "description": "Read current public coverage and freshness."
+    },
+    {
+      "name": "venue_authority_resolve",
+      "description": "Resolve a food-service facility against supported regulator records."
+    },
+    {
+      "name": "venue_authority_get_facility",
+      "description": "Retrieve canonical facility evidence by ID."
+    }
+  ],
+  "keywords": [
+    "facility verification",
+    "food service",
+    "regulator records",
+    "merchant onboarding"
+  ],
+  "license": "MIT",
+  "compatibility": {
+    "platforms": ["darwin", "win32", "linux"],
+    "runtimes": {
+      "node": ">=20"
+    }
+  },
+  "user_config": {
+    "api_key": {
+      "type": "string",
+      "title": "Venue Authority API key",
+      "description": "Optional for public coverage. Required for facility resolution and evidence retrieval.",
+      "sensitive": true,
+      "required": false
+    }
+  }
+}
