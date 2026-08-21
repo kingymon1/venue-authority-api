@@ -1,0 +1,15 @@
+{
+  "name": "venue-authority",
+  "version": "0.1.0",
+  "description": "Node.js client for the Venue Authority facility verification API.",
+  "type": "module",
+  "engines": {"node": ">=18"},
+  "repository": {"type": "git", "url": "https://github.com/kingymon1/venue-authority-api.git", "directory": "packages/node-sdk"},
+  "homepage": "https://github.com/kingymon1/venue-authority-api/tree/main/packages/node-sdk",
+  "bugs": {"url": "https://github.com/kingymon1/venue-authority-api/issues"},
+  "exports": {".": {"types": "./dist/index.d.ts", "import": "./dist/index.js"}},
+  "files": ["dist", "README.md", "LICENSE"],
+  "scripts": {"build": "tsc -p tsconfig.json", "test": "vitest run"},
+  "devDependencies": {"typescript": "6.0.2", "vitest": "4.1.0"},
+  "license": "MIT"
+}

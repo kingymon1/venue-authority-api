@@ -42,6 +42,16 @@ A valid decision returns the disposition, policy reason, source identity, source
 
 The contract also covers canonical facility records, portfolios, audit exports, webhooks, and webhook delivery history.
 
+## Client packages
+
+The repository includes three reviewed, versioned integrations:
+
+- [Node.js SDK](packages/node-sdk) for Node 18 and later. It has no runtime dependencies.
+- [Python SDK](packages/python-sdk) for Python 3.9 and later. It uses only the standard library at runtime.
+- [MCP server](packages/mcp-server) for MCP hosts that need public coverage, facility resolution, or canonical facility evidence.
+
+These packages are available from this repository now. npm and PyPI releases will be documented here only after the corresponding registry publication succeeds.
+
 ## Product boundaries
 
 Venue Authority resolves a submitted facility to a supported regulator record. It does not infer the legal operator, prove that a business is physically open, or search outside the coverage returned by the API. Uncertain matches are rejected.
