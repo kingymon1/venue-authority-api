@@ -1,0 +1,21 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.kingymon1/venue-authority",
+  "title": "Venue Authority",
+  "description": "Verify food-service facilities against supported regulator records.",
+  "repository": {
+    "url": "https://github.com/kingymon1/venue-authority-api",
+    "source": "github"
+  },
+  "version": "0.1.0",
+  "packages": [
+    {
+      "registryType": "mcpb",
+      "identifier": "https://github.com/kingymon1/venue-authority-api/releases/download/clients-v0.1.0/venue-authority-mcp-0.1.0.mcpb",
+      "fileSha256": "b699891c3a06631fb133358c927943f01901780f38bad2b90d28ddf36e8d0675",
+      "transport": {
+        "type": "stdio"
+      }
+    }
+  ]
+}

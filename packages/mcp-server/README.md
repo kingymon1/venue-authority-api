@@ -1,6 +1,6 @@
 # Venue Authority MCP server
 
-This is a small MCP adapter for the public Venue Authority API, implemented with the official `@modelcontextprotocol/server` v2 SDK and Zod v4. It is intentionally isolated from the application package and is not published or deployed by this repository.
+This is a small MCP adapter for the public Venue Authority API, implemented with the official `@modelcontextprotocol/server` v2 SDK and Zod v4. It is isolated from the application package and distributed as source, a package archive, and a one-click MCP bundle.
 
 ## Tools
 
@@ -25,7 +25,9 @@ The process speaks newline-delimited JSON-RPC over stdin/stdout and implements M
 
 ## MCP host configuration
 
-After this package is published, an MCP host can run it with `npx -y venue-authority-mcp`. It is not published yet. To run the repository checkout today, use the absolute path to its executable:
+Download `venue-authority-mcp-0.1.0.mcpb` from the [v0.1.0 release](https://github.com/kingymon1/venue-authority-api/releases/tag/clients-v0.1.0) for hosts that support MCP bundles.
+
+To run the repository checkout, use the absolute path to its executable:
 
 ```json
 {
